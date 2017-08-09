@@ -1,0 +1,16 @@
+<div class="index_container" style="background-image: linear-gradient(-225deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 100%), url('../../assets/images/background.jpg')">
+  <div class="index_content">
+    <h1>What are your main focus for today ?</h1>
+    <ul>
+      <% @tasks.each do |task| %>
+      <div class="task_content">
+        <li class="task"><%= link_to task.title, task_path(task.id) %></li>
+        <li class="edit"><%= link_to "Edit task", edit_task_path(task.id) %></li>
+        <li class="erase"><%= link_to "Erase task", task_path(task), method: :delete %></li>
+    </div>
+      <% end %>
+    </ul>
+    <%= link_to "Add a task", new_task_path %>
+  </div>
+</div>
+
